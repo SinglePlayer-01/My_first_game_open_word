@@ -15,14 +15,20 @@ class MainWindow : public BaseWindow<MainWindow>
 {
 	RECT rect_client;
 
+	// Обирання напрямку руху
 	bool move_right = true;
 	bool move_left = false;
 	bool move_up = false;
 	bool move_down = false;
 
+	// Кількість звеній яких треба намалювати
+	int bool_ellipse = 1;
+
+	// Координати голови
 	int x = 50;
 	int y = 50;
 
+	// Координати хвоста
 	int x_old_1 = 50;
 	int y_old_1 = 50;
 
@@ -113,8 +119,8 @@ class MainWindow : public BaseWindow<MainWindow>
 	int x_old_30 = 50;
 	int y_old_30 = 50;
 
-	int speed_x = 2;
-	int speed_y = 2;
+	int speed_x = 10;
+	int speed_y = 10;
 
 public:
 	PCWSTR ClassName() const { return L"MainWindow class"; }
