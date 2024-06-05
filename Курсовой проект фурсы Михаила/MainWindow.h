@@ -1,6 +1,7 @@
 #pragma once
 
 #include<windows.h>
+#include<ctime>
 #include<d2d1.h>
 #include<dwrite.h>
 
@@ -15,14 +16,32 @@ class MainWindow : public BaseWindow<MainWindow>
 {
 	RECT rect_client;
 
+	// Перо для яблук
+	HBRUSH pen_apple;
+
+	// перо для змійки
+	HBRUSH pen_snake;
+
 	// Обирання напрямку руху
 	bool move_right = true;
 	bool move_left = false;
 	bool move_up = false;
 	bool move_down = false;
 
+	// Координати яблука
+	int x_apple = 100;
+	int y_apple = 100;
+	int x_apple_1 = 200;
+	int y_apple_1 = 200;
+	int x_apple_2 = 300;
+	int y_apple_2 = 300;
+	int x_apple_3 = 400;
+	int y_apple_3 = 400;
+	int x_apple_old = NULL;
+	int y_apple_old = NULL;
+
 	// Кількість звеній яких треба намалювати
-	int bool_ellipse = 1;
+	int bool_ellipse = 5;
 
 	// Координати голови
 	int x = 50;
