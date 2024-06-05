@@ -16,27 +16,60 @@ LRESULT MainWindow::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 			GetClientRect(m_hwnd, &rect_client);
 		return 0;
 
+		case WM_TIMER:
+		{
+			if (move_right == true)
+			{
+				x += speed_x;
+			}
+			else if (move_left == true)
+			{
+				x -= speed_x;
+			}
+			else if (move_up == true)
+			{
+				y -= speed_y;
+			}
+			else if (move_down == true)
+			{
+				y += speed_y;
+			}
+			InvalidateRect(m_hwnd, NULL, TRUE);
+		}
+		return 0;
+
 		case WM_KEYDOWN:
 		{
 			switch (wParam)
 			{
 				case VK_LEFT:
-					x -= 10;
+					 move_right = false;
+					 move_left = true;
+					 move_up = false;
+					 move_down = false;
 				break;
 
 				case VK_RIGHT:
-					x += 10;
+					 move_right = true;
+					 move_left = false;
+					 move_up = false;
+					 move_down = false;
 				break;
 
 				case VK_UP:
-					y -= 10;
+					 move_right = false;
+					 move_left = false;
+					 move_up = true;
+					 move_down = false;
 				break;
 
 				case VK_DOWN:
-					y += 10;
+					 move_right = false;
+					 move_left = false;
+					 move_up = false;
+					move_down = true;
 				break;
 			}
-			InvalidateRect(m_hwnd, NULL, TRUE);
 		}
 		return 0;
 

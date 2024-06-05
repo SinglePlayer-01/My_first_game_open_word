@@ -15,6 +15,10 @@ class MainWindow : public BaseWindow<MainWindow>
 {
 	RECT rect_client;
 
+	bool move_right = true;
+	bool move_left = false;
+	bool move_up = false;
+	bool move_down = false;
 
 	int x = 50;
 	int y = 50;
@@ -49,8 +53,68 @@ class MainWindow : public BaseWindow<MainWindow>
 	int x_old_10 = 50;
 	int y_old_10 = 50;
 
-	int speed_x = 5;
-	int speed_y = 5;
+	int x_old_11 = 50;
+	int y_old_11 = 50;
+
+	int x_old_12 = 50;
+	int y_old_12 = 50;
+
+	int x_old_13 = 50;
+	int y_old_13 = 50;
+
+	int x_old_14 = 50;
+	int y_old_14 = 50;
+
+	int x_old_15 = 50;
+	int y_old_15 = 50;
+
+	int x_old_16 = 50;
+	int y_old_16 = 50;
+
+	int x_old_17 = 50;
+	int y_old_17 = 50;
+
+	int x_old_18 = 50;
+	int y_old_18 = 50;
+
+	int x_old_19 = 50;
+	int y_old_19 = 50;
+
+	int x_old_20 = 50;
+	int y_old_20 = 50;
+
+	int x_old_21 = 50;
+	int y_old_21 = 50;
+
+	int x_old_22 = 50;
+	int y_old_22 = 50;
+
+	int x_old_23 = 50;
+	int y_old_23 = 50;
+
+	int x_old_24 = 50;
+	int y_old_24 = 50;
+
+	int x_old_25 = 50;
+	int y_old_25 = 50;
+
+	int x_old_26 = 50;
+	int y_old_26 = 50;
+
+	int x_old_27 = 50;
+	int y_old_27 = 50;
+
+	int x_old_28 = 50;
+	int y_old_28 = 50;
+
+	int x_old_29 = 50;
+	int y_old_29 = 50;
+
+	int x_old_30 = 50;
+	int y_old_30 = 50;
+
+	int speed_x = 2;
+	int speed_y = 2;
 
 public:
 	PCWSTR ClassName() const { return L"MainWindow class"; }
