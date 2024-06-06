@@ -53,12 +53,32 @@ LRESULT MainWindow::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 				y += speed_y;
 			}
 
-			if (((x_apple - 20) == x | (x_apple + 20)) == x && ((y_apple - 20) == y || (y_apple + 20) == y))
+		
+			// Ограничение для змейки по движению
+
+			GetClientRect(m_hwnd, &rect_client);
+
+			if (x < 0)
 			{
-				x_apple = getRandomNumber(20, rect_client.bottom - 20);
-				y_apple = getRandomNumber(20, rect_client.bottom - 20);
-				bool_ellipse += 10;
+				x = rect_client.right / 2;
+				y = rect_client.bottom /2;
 			}
+			else if (rect_client.right < x)
+			{
+				x = rect_client.right / 2;
+				y = rect_client.bottom / 2;
+			}
+			if (y < 0)
+			{
+				x = rect_client.right / 2;
+				y = rect_client.bottom / 2;
+			}
+			else if (rect_client.bottom < y)
+			{
+				x = rect_client.right / 2;
+				y = rect_client.bottom / 2;
+			}
+
 			if (((x_apple_1 - 20) == x | (x_apple_1 + 20)) == x && (y == (y_apple_1 - 20) || y == (y_apple_1 + 20)))
 			{
 				x_apple_1 = getRandomNumber(20, rect_client.right - 20);
@@ -88,31 +108,55 @@ LRESULT MainWindow::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 			switch (wParam)
 			{
 				case VK_LEFT:
-					 move_right = false;
-					 move_left = true;
-					 move_up = false;
-					 move_down = false;
+					if (move_right != true)
+					{
+						move_right = false;
+						move_left = true;
+						move_up = false;
+						move_down = false;
+					}
+				break;
+
+				case VK_F1:
+				{
+					bool_ellipse += 10;
+				}
+				break;
+
+				case VK_F2:
+				{
+					bool_ellipse -= 10;
+				}
 				break;
 
 				case VK_RIGHT:
-					 move_right = true;
-					 move_left = false;
-					 move_up = false;
-					 move_down = false;
+					if (move_left != true)
+					{
+						move_right = true;
+						move_left = false;
+						move_up = false;
+						move_down = false;
+					}
 				break;
 
 				case VK_UP:
-					 move_right = false;
-					 move_left = false;
-					 move_up = true;
-					 move_down = false;
+					if (move_down != true)
+					{
+						move_right = false;
+						move_left = false;
+						move_up = true;
+						move_down = false;
+					}
 				break;
 
 				case VK_DOWN:
-					 move_right = false;
-					 move_left = false;
-					 move_up = false;
-					move_down = true;
+					if (move_up != true)
+					{
+						move_right = false;
+						move_left = false;
+						move_up = false;
+						move_down = true;
+					}
 				break;
 			}
 		}

@@ -44,8 +44,8 @@ class MainWindow : public BaseWindow<MainWindow>
 	int bool_ellipse = 5;
 
 	// Координати голови
-	int x = 50;
-	int y = 50;
+	int x = 200;
+	int y = 100;
 
 	// Координати хвоста
 	int x_old_1 = 50;
@@ -138,8 +138,8 @@ class MainWindow : public BaseWindow<MainWindow>
 	int x_old_30 = 50;
 	int y_old_30 = 50;
 
-	int speed_x = 10;
-	int speed_y = 10;
+	int speed_x = 5;
+	int speed_y = 5;
 
 public:
 	PCWSTR ClassName() const { return L"MainWindow class"; }
